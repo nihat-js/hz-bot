@@ -1,14 +1,21 @@
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 4140
+const commands = require('./app')
+
+
 
 app.get('/', (req, res) => {
    res.send('This is index')
+
 })
 
 
 app.get('/auto_xp', (req, res) => {
-   res.send('Auto xp')
+   commands.auto_xp()
+   setTimeout(() => {
+      res.send('Now we are done')
+   }, 7000)
 })
 
 app.get('/auto_fight_hideout', (req, res) => {

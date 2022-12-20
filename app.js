@@ -161,3 +161,7 @@ async function auto_xp() {
 }
 
 
+
+module.exports = {
+    auto_xp
+}
