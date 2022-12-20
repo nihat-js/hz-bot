@@ -2,7 +2,7 @@
   "name": "hz-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "auto_xp.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "auto_xp": "node auto_xp.js"
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/nihat-js/hz-bot/issues"
   },
-  "homepage": "https://github.com/nihat-js/hz-bot#readme"
+  "homepage": "https://github.com/nihat-js/hz-bot#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
