@@ -149,13 +149,23 @@ async function auto_xp() {
         return false
     }
     let quests = await response.data.quests
-    let response1 = await start_quest(quests[random(quests.length)].id)
+    let j = 0
 
-    if (response.error == 'errRemoveQuestEnergyNotEnough') {
+    for (let i = 1; i < quests.length; i++) {
+        let maxRatio = quests[i].rewards.xp / quests[i].energy_cost
+        let currentRatio = quests[j].rewards.xp / quests[j].energy_cost
+        if (currentRatio > maxRatio) {
+            j = i
+        }
+    }
+
+    let response1 = await start_quest(quests[j].id)
+
+    if (response1.error == 'errRemoveQuestEnergyNotEnough') {
         await buy_quest_energy()
         response1 = await start_quest(quests[random(quests.length)].id);
-        console.log("Enery Not Enough Second try", response1.error)
-        send_telegram_message(` ERROR : Energy Not Enough , second time tried and response is ${response1} `,)
+        console.log("Energy Not Enough Second try", response1.error)
+        send_telegram_message(` ERROR : Energy Not Enough , second time tried and response is ${response1.error} `,)
     }
 
 }
