@@ -1,0 +1,21 @@
+{
+  "name": "hz-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "auto_xp": "node auto_xp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nihat-js/hz-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nihat-js/hz-bot/issues"
+  },
+  "homepage": "https://github.com/nihat-js/hz-bot#readme"
+}
