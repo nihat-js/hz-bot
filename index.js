@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const PORT = process.env.PORT || 4140
 
 app.get('/', (req, res) => {
    res.send('This is index')
@@ -17,4 +17,6 @@ app.get('/auto_fight_hideout', (req, res) => {
 
 
 
-app.listen(5000)
+app.listen(PORT, () => {
+   console.log(`Server started on port ${PORT}`)
+})
