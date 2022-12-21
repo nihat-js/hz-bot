@@ -26,7 +26,9 @@ function send_telegram_message(text = "Its working") {
 
 	fetch(URL)
 		.then(res => res.json())
-		.then(res => console.log(res))
+		.then(res => {
+			// console.log(res)
+		})
 
 }
 
@@ -139,7 +141,27 @@ async function auto_login_user() {
 }
 
 
+async function check_for_quest_complete() {
+	let response = await fetch(URL, {
+		"headers": DEFAULT_HEADERS,
+		"referrer": "https://tr12.herozerogame.com/",
+		body: new URLSearchParams({
+			reload_user: true,
+			action: "check_for_quest_complete",
+			...DEFAULT_BODY
+		}),
+		"method": "POST",
+		"mode": "cors"
+	}).toString()
+	let json = await response.json()
+	console.log(`action :check_for_quest_complete , error : ${json.error}  `,)
+	return json
+}
+
+
 async function auto_xp() {
+	await donate_to_guild()
+	let response_check_for_quest_complete = await check_for_quest_complete()
 	let response_claim = await claim_quest_rewards()
 	let response = await auto_login_user()
 
